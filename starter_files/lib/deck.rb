@@ -1,4 +1,3 @@
-
 require_relative "card"
 
 class Deck
@@ -13,9 +12,9 @@ class Deck
     end
   end
 
-  def cards_left
-    @cards.length
-  end
+  # def cards_left
+  #   @cards.length
+  # end
 
   def draw
     @cards.shift
