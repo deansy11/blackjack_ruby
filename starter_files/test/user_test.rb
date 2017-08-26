@@ -1,5 +1,5 @@
-require_relative "../lib/user"
 require "minitest/autorun"
+require_relative "../lib/user"
 
 class UserTest < Minitest::Test
   def setup
@@ -7,8 +7,8 @@ class UserTest < Minitest::Test
   end
 
   def test_new_user_has_money
-    assert_equal
-
+    user = User.new(100, 10)
+    user.money.should eq(100)
   end
 
 end
