@@ -1,11 +1,12 @@
-require_relative "hand"
+require_relative "deck"
 
-class USER
+class User
   def initialize(money, hand)
     @money = money
     @hand = hand
-
   end
+
+  attr_accessor :money, :hand
 
   def hit
     user.hand << deck.draw
@@ -23,7 +24,4 @@ class USER
 
    def stand
    end
-
-
-
-  attr_accessor :money, :grade
+end

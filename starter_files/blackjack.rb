@@ -1,7 +1,6 @@
-require_relative "hand"
-require_relative "game"
-require_relative "deck"
-require_relative "dealer"
+require_relative "lib/deck"
+require_relative "lib/dealer"
+require_relative "lib/user"
 
 
 # class Game
@@ -22,13 +21,15 @@ def next_move
 end
 move = next_move
 
-user = User.newdealer = Dealer.newdeck = Deck.new
-
+user = User.new
+dealer = Dealer.new
 deck = Deck.new
-deck.shuffle
 
-user.hand << user.draw * 2
-dealer.hand << dealer.draw * 2
+# deck = Deck.new
+# deck.shuffle
+#
+# user.hand << user.draw * 2
+# dealer.hand << dealer.draw * 2
 
 puts "TODO Implement the game of blackjack."
 
@@ -39,19 +40,19 @@ Do you want to (h)it or (s)tand?"
 
 move #make sure that user inputs only h or s
 
-  if move == "H"
-    user.hit
-  else
-
-
-  end
-
-
-
-
-if move == "h"
-
-end
-
-
-end
+#   if move == "H"
+#     user.hit
+#   else
+#
+#
+#   end
+#
+#
+#
+#
+# if move == "h"
+#
+# end
+#
+#
+# end

@@ -24,3 +24,7 @@ class Deck
     @cards.shuffle
   end
 end
+
+def to_s
+  "#{@ranks} - #{@suit}"
+end
