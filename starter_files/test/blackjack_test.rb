@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "../blackjack"
+require_relative "../lib/blackjack"
 
 class GameTest < Minitest::Test
   def setup
