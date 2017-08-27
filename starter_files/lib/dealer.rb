@@ -2,13 +2,14 @@ require_relative "deck"
 
 class Dealer
   attr_accessor :hand
-  def initialize(hand)
-    @hand = []
+  def initialize(dealer_hand)
+    @dealer_hand = []
   end
 
-  def hand
-    @hand
+  def dealer_hand
+    @dealer_hand
   end
+end
 
   # def hand_value
   #   @hand_value
@@ -22,5 +23,3 @@ class Dealer
   #   # compare user's hand and dealer's hand
   #   # if statement - if user stands, then evaluate both hands and compare
   # end
-
-end
