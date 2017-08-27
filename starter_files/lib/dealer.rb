@@ -1,19 +1,18 @@
 require_relative "deck"
 
 class Dealer
-  attr_accessor :hand, :value
-  def initialize(hand, value)
+  attr_accessor :hand
+  def initialize(hand)
     @hand = []
-    @value = 0
   end
 
   def hand
     @hand
   end
 
-  def hand_value
-    @hand_value
-  end
+  # def hand_value
+  #   @hand_value
+  # end
 
   # def hit
   #   user.hand << deck.draw

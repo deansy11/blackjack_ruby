@@ -6,13 +6,29 @@ require_relative "card"
 class Game
   attr_reader :user, :dealer
   def initialize
-    @user = User.new([], 100)
-    @dealer = Dealer.new([], 0)
+    @user = User.new(100, [])
+    @dealer = Dealer.new([])
   end
 
   def deck
     @deck = Deck.new(:cards, :rank)
     @deck.shuffle
+  end
+
+  def user
+    @user
+  end
+
+  def user_hand
+    user.user_hand
+  end
+
+  def user_hand_value
+
+  end
+  
+  def hit
+
   end
 
   def user_move
@@ -33,9 +49,6 @@ class Game
   end
 end
 
-  # def user_hand_value
-  #
-  # end
   #
   # def user_hand
   #   2.times do
