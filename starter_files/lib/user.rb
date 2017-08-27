@@ -1,27 +1,24 @@
 require_relative "deck"
 
 class User
-  def initialize(money, hand)
-    @money = money
-    @hand = hand
+  def initialize
+    @money = 100
+    @hand = []
+    @hand_value = 0
   end
 
-  attr_accessor :money, :hand
+  attr_accessor :money, :hand, :hand_value
 
-  def hit
-    user.hand << deck.draw
+  def hand
+    @hand
   end
 
-  def stand
-    # compare user's hand and dealer's hand
-    # if statement - if user stands, then evaluate both hands and compare
+  def money
+    @money
   end
 
+  def hand_value
+    @hand_value
+  end
 
-   def hit
-
-   end
-
-   def stand
-   end
 end

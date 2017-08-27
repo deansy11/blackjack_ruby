@@ -25,6 +25,6 @@ class Deck
   end
 end
 
-def to_s
-  "#{@ranks} - #{@suit}"
-end
+  # def to_s
+  #   "#{@ranks} - #{@suit}"
+  # end
