@@ -1,13 +1,12 @@
 require_relative "deck"
 
 class User
-  def initialize
+  def initialize (money, hand)
     @money = 100
     @hand = []
-    @hand_value = 0
   end
 
-  attr_accessor :money, :hand, :hand_value
+  attr_accessor :money, :hand
 
   def hand
     @hand

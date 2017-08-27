@@ -1,12 +1,11 @@
 require_relative "deck"
 
 class Dealer
+  attr_accessor :hand, :value
   def initialize(hand, value)
     @hand = []
-    @hand_value = 0
+    @value = 0
   end
-
-  attr_accessor :hand, :hand_value
 
   def hand
     @hand

@@ -4,14 +4,14 @@ require_relative "user"
 require_relative "card"
 
 class Game
-  attr_accessor :user, :dealer
+  attr_reader :user, :dealer
   def initialize
     @user = User.new([], 100)
-    @dealer = Dealer.new([])
+    @dealer = Dealer.new([], 0)
   end
 
   def deck
-    @deck = Deck.new
+    @deck = Deck.new(:cards, :rank)
     @deck.shuffle
   end
 
