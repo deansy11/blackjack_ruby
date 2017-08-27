@@ -9,6 +9,7 @@ class Dealer
   def dealer_hand
     @dealer_hand
   end
+
 end
 
   # def hand_value

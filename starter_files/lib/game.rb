@@ -12,6 +12,16 @@ class Game
     @dealer = Dealer.new([])
     @user_hand = Hand.new([])
     @dealer_hand = Hand.new([])
+    # why can this not be below the initialize (error 'stack level too deep')
+    2.times { dealer_hand.hit(deck) }
+    2.times { user_hand.hit(deck) }
+  end
+  def user_hand
+    @user_hand
+  end
+
+  def dealer_hand
+    @dealer_hand
   end
 
   def deck
@@ -27,20 +37,17 @@ class Game
     @dealer
   end
 
-  def user_hand
-    @user_hand
-    2.times { dealer_hand.hit(@deck) }
-  end
-
-  def dealer_hand
-    @dealer_hand
-    2.times { dealer_hand.hit(@deck) }
-  end
-
   def user_hand_value
   end
 
   def dealer_hand_value
+  end
+
+  def dealer_move
+    if dealer_hand_value < 17
+      hit(deck)
+      dealer_move(deck)
+    end
   end
 
   def current_game

@@ -10,7 +10,7 @@ end
 
 begin(game)
   game.deck
-  game.hit
+  # game.hit
   game.user_hand
   game.user_hand_value
   game.user_move
