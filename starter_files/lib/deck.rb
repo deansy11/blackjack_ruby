@@ -3,7 +3,7 @@ require_relative "card"
 class Deck
   attr_reader :cards, :ranks
   SUITS = [:clubs, :diamonds, :hearts, :spades]
-  def initialize(cards, ranks)
+  def initialize
     @cards = []
     @ranks = Card::RANKS
     SUITS.each do |suit|
@@ -13,9 +13,9 @@ class Deck
     end
   end
 
-  # def cards_left
-  #   @cards.length
-  # end
+  def cards_left
+    @cards.length
+  end
 
   def draw
     @cards.shift
@@ -25,7 +25,3 @@ class Deck
     @cards.shuffle
   end
 end
-
-  # def to_s
-  #   "#{@ranks} - #{@suit}"
-  # end
