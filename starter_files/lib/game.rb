@@ -24,6 +24,10 @@ class Game
     @dealer
   end
 
+  def hand
+
+  end
+
   def user_hand
     user.hand
   end
@@ -33,28 +37,17 @@ class Game
   end
 
   def user_hand_value
-
+    user_hand.value
   end
 
   def dealer_hand_value
-
+    dealer.hand.value
   end
-
-  # def dealer_move
-  #   if dealer_hand_value < 17
-  #     hit(deck)
-  #     dealer_move(deck)
-  #   end
-  # end
 
   def user_hit
     user_hand << deck.draw
   end
-
-  def dealer_hit
-    dealer_hand << deck.draw
-  end
-
+  
   def deck_shuffle
     deck.shuffle
   end
@@ -63,21 +56,21 @@ class Game
     user.money -= 10
   end
 
-  def user_move
+  def blackjack
     while user.money > 9
       deck_shuffle
       place_bet
       2.times { user_hit }
       2.times { dealer_hit }
-      print "Welcome to blackjack! You started with $#{user.money} and bet $10. You're holding a #{} and a #{}. \n Your total is #{}. \n
+      print "Welcome to blackjack! You started with $#{user.money} and bet $10. You're holding the #{user.hand[0].rank} of #{user.hand[0].suit.upcase} and the #{user.hand[1].rank} of #{user.hand[1].suit.upcase}. \n Your total is #{}. \n
       # Do you want to (H)it or (S)tand?"
       move = gets.chomp.upcase
       if move == "H"
         user_hit
-        print "You hit. You now have #{}, #{}, #{}. Do you want to (H)it or (S)tand?"
+        print "You hit. You now have #{user.hand[0].rank} of #{user.hand[0].suit.upcase}, the #{user.hand[1].rank} of #{user.hand[1].suit.upcase} and  #{user.hand[2].rank} of #{user.hand[2].suit.upcase}. Do you want to (H)it or (S)tand?"
         move = gets.chomp.upcase
       elsif move == "S"
-        return "Alright. You decided to stand. Your total is #{}."
+        print "Alright. You decided to stand. Your total is #{}. Let's see what the dealer has."
       else
         print "Only two options here so I'll ask again - do you want to (H)it or S(tand)?"
         move = gets.chomp.upcase
