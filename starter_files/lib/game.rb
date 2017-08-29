@@ -36,8 +36,13 @@ class Game
     while hand_value(@dealer) < 17
       dealer_hit
     end
-  print "The dealer's hand value is #{hand_value(@dealer)}."
-end
+    if hand_value(@dealer) == 21
+      print "Dealer's hand value is '21'. Dealer wins (sorry)!"
+      new_game
+    else
+    print "The dealer's hand value is #{hand_value(@dealer)}.\n"
+    end
+  end
 
   def deck_shuffle
     @deck.shuffle
@@ -45,6 +50,20 @@ end
 
   def place_bet
     @user.money -= 10
+  end
+
+  def new_game
+    "Do you want to play again? \n Y(es) or (N)o."
+    play_again = gets.chomp.upcase
+    if play_again == "Y"
+      blackjack
+    elsif play_again == "N"
+      print "Thanks for playing!"
+      return
+    else
+      print "Please type 'Y' to play again or 'N' to end."
+      play_again
+    end
   end
 
   def blackjack
@@ -69,7 +88,16 @@ end
         print "Only two options here so I'll ask again - do you want to (H)it or S(tand)?"
         move = gets.chomp.upcase
       end
-      dealer_move
+      if hand_value(@user) > 21
+        print "You went over 21. Sorry you lose!\n"
+        new_game
+      elsif hand_value(@user) == 21
+        print "You got 21! You win!!!"
+        new_game
+      else
+        dealer_move
+      end
+      # need to compare dealer hand to user hand value
     end
   end
 end
