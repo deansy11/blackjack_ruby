@@ -13,7 +13,8 @@ class Game
   end
 
   def hand_value(player)
-    hand_value = player.hand.reduce(0) do |acc, i|
+
+    total = player.hand.reduce(0) do |acc, i|
       if i.rank.to_s == "J" || i.rank.to_s == "Q" || i.rank.to_s == "K"
         acc + 10
       elsif i.rank.to_s == "A"
@@ -22,7 +23,7 @@ class Game
       acc + i.rank.to_i
       end
     end
-    hand_value
+    total
   end
 
   def user_hit
@@ -38,7 +39,7 @@ class Game
       dealer_hit
     end
     if hand_value(@dealer) == 21
-      print "Dealer's hand value is '21'. Dealer wins (sorry)!"
+      print "Dealer's hand value is '21'. Dealer wins (sorry)! \n"
       new_game
     else
     print "The dealer's hand value is #{hand_value(@dealer)}.\n"
@@ -46,26 +47,36 @@ class Game
   end
 
   def new_game
-    print "Do you want to play again? \n Y(es) or (N)o."
+    print "Do you want to play again? \n Y(es) or (N)o. \n"
     play_again = gets.chomp.upcase
-    if play_again == "Y"
+    if play_again == "Y \n"
       blackjack
-    elsif play_again == "N"
-      print "Thanks for playing!"
+    elsif play_again == "N \n"
+      print "Thanks for playing! \n"
       return
     else
-      print "Please type 'Y' to play again or 'N' to end."
+      print "Please type 'Y' to play again or 'N' to end. \n"
       play_again
     end
   end
 
-  def hand_eval
-    if hand_value(@dealer) > hand_value(@user) && hand_value(@dealer) < 21
-      print "The dealer wins! Sorry..."
-    elsif hand_value(@dealer) == hand_value(@user)
-      print "Tie game!"
+  def ace
+    if @user.hand.include?("A") && hand_value(@user) <= 10
+      hand_value(@user).to_i = hand_value(@user).to_i + 10
+    elsif @dealer.hand.include?("A") && hand_value(@dealer) <= 10
+      hand_value(@dealer).to_i = hand_value(@dealer).to_i + 10
     else
-      print "User wins! Congratulations!!!"
+    end
+  end
+
+  def hand_eval
+    ace
+    if hand_value(@dealer) > hand_value(@user) && hand_value(@dealer) < 21
+      print "The dealer wins! Sorry... \n"
+    elsif hand_value(@dealer) == hand_value(@user)
+      print "Tie game! \n"
+    else
+      print "User wins! Congratulations!!! \n"
       user_win
     end
   end
@@ -85,7 +96,7 @@ class Game
   def blackjack
     @dealer = Dealer.new
 
-    while @user.money > 9
+    while @user.money.to_i > 9
       @user.hand = []
       @deck.shuffle
       place_bet
