@@ -23,6 +23,9 @@ class Game
       acc + i.rank.to_i
       end
     end
+    if total.to_i <= 10 && player.hand.include?("A")
+      total += 10
+    end
     total
   end
 
@@ -60,17 +63,7 @@ class Game
     end
   end
 
-  def ace
-    if @user.hand.include?("A") && hand_value(@user) <= 10
-      hand_value(@user).to_i = hand_value(@user).to_i + 10
-    elsif @dealer.hand.include?("A") && hand_value(@dealer) <= 10
-      hand_value(@dealer).to_i = hand_value(@dealer).to_i + 10
-    else
-    end
-  end
-
   def hand_eval
-    ace
     if hand_value(@dealer) > hand_value(@user) && hand_value(@dealer) < 21
       print "The dealer wins! Sorry... \n"
     elsif hand_value(@dealer) == hand_value(@user)
