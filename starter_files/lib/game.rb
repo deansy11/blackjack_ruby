@@ -23,9 +23,13 @@ class Game
       acc + i.rank.to_i
       end
     end
-    if total.to_i <= 10 && player.hand.include?("A")
-      total += 10
+
+    player.hand.each do |card|
+      if card.rank.to_s == "A" && total.to_i <= 10
+        total += 10
+      end
     end
+
     total
   end
 
@@ -91,6 +95,7 @@ class Game
 
     while @user.money.to_i > 9
       @user.hand = []
+      @dealer.hand = []
       @deck.shuffle
       place_bet
       2.times { user_hit }
