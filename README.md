@@ -1,9 +1,4 @@
----
-title: >-
-  Blackjack
-description: >-
-  A command-line game that allows one player to play blackjack against the computer.
----
+# Blackjack
 
 A one-player-against-the-computer game of blackjack.
 
