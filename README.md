@@ -1,27 +1,18 @@
 ---
-course: >-
-  Ruby on Rails
 title: >-
   Blackjack
 description: >-
-  Create a command-line game that allows one player to play blackjack against the computer.
+  A command-line game that allows one player to play blackjack against the computer.
 ---
 
-For this weekly assignment, you will create a one-player-against-the-computer game of blackjack. You will take your notes from your "Designing classes for blackjack" activity to use in writing the classes and other code for this game.
+A one-player-against-the-computer game of blackjack.
 
-The following restrictions apply to your game:
-
-* The game should start the player with $100 and bets are $10.
+* The game starts with a player hand value of $100. Bets are $10.
 * The only valid moves are hit and stand.
-* Allow the player to keep playing as long as they have money.
+* Player can continue opting-in to additional rounds as long as they have money.
 * The dealer uses one deck in their shoe and reshuffles after each round.
 
-Traditionally in blackjack, the dealer has one card visible. Implementing this can be considered optional.
-
-### Getting user input
-
-One thing you will have to do in this project that you have not before is get user input from the command line. In Ruby, the [`gets` method](https://ruby-doc.org/core-2.4.1/Kernel.html#method-i-gets) will let you do this. An example:
-
+User contribute input from the command line.
 ```irb
 irb(main):001:0> name = gets
 Keelan
@@ -97,10 +88,5 @@ The dealer stands. The dealer has a total of 19. You win!
 You have $90 and bet $10.
 ...
 ```
-
-# Files
-
-Starter files have been provided in the 'starter\_files' folder. There is only a set of directories, a `Rakefile`, and a `blackjack.rb` file which should be run to start your game. No tests are provided, but you should write tests to help you along the way.
-
 [callout-download]
 [/callout-download]
